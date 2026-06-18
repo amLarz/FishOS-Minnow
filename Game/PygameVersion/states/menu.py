@@ -28,8 +28,8 @@ while running:
     # RENDER YOUR GAME HERE
     
     # Rendering the font
-    font = pygame.font.Font(r"C:\FishOS-Minnow\Game\Game Assets\determination.ttf", size=100)
-    subfont = pygame.font.Font(r"C:\FishOS-Minnow\Game\Game Assets\determination.ttf", size=50)
+    font = pygame.font.Font(r"C:\Users\larzr\OneDrive\Documents\GitHub\FishOS-Minnow\Game\Game Assets\determination.ttf", size=100)
+    subfont = pygame.font.Font(r"C:\Users\larzr\OneDrive\Documents\GitHub\FishOS-Minnow\Game\Game Assets\determination.ttf", size=50)
 
     # Main menu texts
     titleText1 = font.render("FishOS: ", True, (0, 107, 166))
