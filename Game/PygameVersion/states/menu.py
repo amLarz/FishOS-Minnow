@@ -1,4 +1,6 @@
 import pygame
+import time
+
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -10,6 +12,7 @@ screenHeight = 720
 
 def run_menu():
     global selection
+
     running = True
     while running:
         # poll for events
@@ -18,16 +21,9 @@ def run_menu():
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP and selection != 0:
-                    selection -= 1
-                if event.key == pygame.K_DOWN and selection != 1: # CHANGE LATER ON WHEN MORE SELECTION CHOICES
-                    selection += 1
                 if event.key == pygame.K_RETURN:
-                    if selection == 0:
-                        return "game"
-                    elif selection == 1:
-                        return "settings"
-                    # Another if statement for more options
+                    return "game"
+ 
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
 
@@ -40,9 +36,8 @@ def run_menu():
         # Main menu texts
         titleText1 = font.render("FishOS: ", True, (0, 107, 166))
         titleText2 = font.render("Minnow", True, (135, 206, 250))
-        playText = subfont.render("Play", True, (0, 107, 166))
-        Placeholder = subfont.render("PlaceHolder", True, "white")
-        select = subfont.render("><))>", True, (135, 206, 250))
+        playText = subfont.render("press ENTER to start", True, (0, 107, 166))
+        fishText = subfont.render("><))>", True, (135, 206, 250))
 
         # Centering Title text
         titleTextWidth = titleText1.get_width() + titleText2.get_width()
@@ -50,30 +45,25 @@ def run_menu():
         titleX = (screenWidth - titleTextWidth) // 2
         titleY = (screenHeight - titleTextHeight) // 2
 
-        # Centering Button Texts
+        # Centering Start Button Text
         playTextWidth = playText.get_width()
         playTextHeight = playText.get_height()
         playX = (screenWidth - playTextWidth) // 2
         playY = (screenHeight - playTextHeight) // 2
 
+        # Centering Fish Text
+        fishTextWidth = fishText.get_width()
+        fishTextHeight = playText.get_height()
+        fishX = (screenWidth - fishTextWidth) // 2
+        fishY = (screenHeight - fishTextHeight) // 2
+
         # Position of texts
         screen.blit(titleText1, (titleX, titleY - 100)) # Getting the wanted height
         screen.blit(titleText2, (titleX + titleText1.get_width(), titleY - 100))
-        screen.blit(playText, (playX, playY - 100))
-        screen.blit(Placeholder, (playX, playY))
-        
-
-        # Selection visual status
-        if selection == 0:
-            screen.blit(select, (playX - 130, playY - 100))
-        
-        if selection == 1:
-            screen.blit(select, (playX - 130, playY))
-
-        # the buttons
-        
-
-
+        if time.time() % 1 > 0.5:
+            screen.blit(playText, (playX, playY + 250))
+        screen.blit(fishText, (fishX, fishY - 100))
+            
 
 
         # flip() the display to put your work on screen
