@@ -1,6 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-from playerState import fishingState
+from fishingState import fishingState
 
 # pygame setup
 pygame.init()
