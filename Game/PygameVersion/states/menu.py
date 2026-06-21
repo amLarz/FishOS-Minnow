@@ -1,5 +1,6 @@
 import pygame
 import time
+import os
 
 # pygame setup
 pygame.init()
@@ -9,6 +10,7 @@ selection = 0
 # Spec Variables
 screenWidth = 1280
 screenHeight = 720
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def run_menu():
     global selection
@@ -30,8 +32,9 @@ def run_menu():
         # RENDER YOUR GAME HERE
         
         # Rendering the font
-        font = pygame.font.Font(r"C:\Users\larzr\OneDrive\Documents\GitHub\FishOS-Minnow\Game\Game Assets\determination.ttf", size=100)
-        subfont = pygame.font.Font(r"C:\Users\larzr\OneDrive\Documents\GitHub\FishOS-Minnow\Game\Game Assets\determination.ttf", size=50)
+        fontPath = os.path.join(BASE_DIR, "..", "..", "Game Assets", "determination.ttf")
+        font = pygame.font.Font(fontPath, size=100)
+        subfont = pygame.font.Font(fontPath, size=50)
 
         # Main menu texts
         titleText1 = font.render("FishOS: ", True, (0, 107, 166))

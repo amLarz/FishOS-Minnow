@@ -1,5 +1,3 @@
-import pygame
-import sys
 from menu import run_menu
 from game import run_game
 

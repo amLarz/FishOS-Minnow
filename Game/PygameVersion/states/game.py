@@ -1,5 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
+from playerState import fishingState
 
 # pygame setup
 pygame.init()
@@ -14,6 +15,9 @@ def run_game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_x:
+                    fishingState()
 
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("purple")
