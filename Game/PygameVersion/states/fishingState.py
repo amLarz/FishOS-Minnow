@@ -16,3 +16,5 @@ def catchRNG():
         fish = shallowFish[2]
     
     print(f"caught a {fish}!")
+    
+    return fish

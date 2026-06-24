@@ -13,6 +13,7 @@ player_state = False # made to be global
 
 def callState():
     global player_state
+    
     return player_state
 
 def switchState():
@@ -38,6 +39,7 @@ def stateMachine():
         
 # TODO: work on dots on one second, cancelation (both dont work).
 def waitFish():
+    global player_state
     shallow_catch_time = random.randint(3000, 10000)
     time_start = pygame.time.get_ticks()
     time_end = time_start + shallow_catch_time
@@ -49,18 +51,13 @@ def waitFish():
 
         current_time = pygame.time.get_ticks()
 
-        still_fishing = callState()
-
-        if still_fishing == False:
-            print("cancelled catch.")
-            break
-        
-        if last_tick >= current_time - 1000:
-            last_tick = last_tick + 1000
+        if last_tick <= current_time - 1000:
+            last_tick += 1000
             print(".", end="")
-    
+            
     print("")
     catchRNG()
+    time.sleep(5)
 
 
 def run_game():
