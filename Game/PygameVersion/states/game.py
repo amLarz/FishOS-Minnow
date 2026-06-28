@@ -5,6 +5,7 @@ import time
 from fishingState import catchRNG
 
 
+
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -13,7 +14,6 @@ player_state = False # made to be global
 
 def callState():
     global player_state
-    
     return player_state
 
 def switchState():
@@ -30,36 +30,46 @@ def switchState():
     stateMachine()  
 
 def stateMachine():
+
     fishing_state = callState()
     
     if fishing_state == True:
         waitFish()
     else:
         pass
-        
-# TODO: work on dots on one second, cancelation (both dont work).
+
+# TODO: sprite integration
 def waitFish():
+
+    # Set up for time 
     global player_state
     shallow_catch_time = random.randint(3000, 10000)
     time_start = pygame.time.get_ticks()
     time_end = time_start + shallow_catch_time
+
     last_tick = time_start # every second start
     current_time = time_start # ever milisecond start
 
+    # Keeps fishing not be the add (have the chance to add dots)
     print("fishing", end="")
-    while current_time <= time_end:
 
+    while current_time <= time_end:
+        
         current_time = pygame.time.get_ticks()
 
         if last_tick <= current_time - 1000:
             last_tick += 1000
             print(".", end="")
-            
+
     print("")
     catchRNG()
-    time.sleep(5)
+    time.sleep(3)
 
+    return 
+    
 
+# TODO: work on sprites here
+# running and rendering the game 
 def run_game():
     # setup and render
     running = True
@@ -80,6 +90,7 @@ def run_game():
         screen.fill("purple")
 
         # RENDER YOUR GAME HERE
+        # TODO: Display, for the main game.
 
         # flip() the display to put your work on screen
         pygame.display.flip()
