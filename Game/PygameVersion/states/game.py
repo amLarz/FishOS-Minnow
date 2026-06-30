@@ -29,10 +29,12 @@ def switchState():
     player_state = current_state
     stateMachine()  
 
+# Changes State from idle to fishing
 def stateMachine():
 
     fishing_state = callState()
     
+    # Proceed to wait fish
     if fishing_state == True:
         waitFish()
     else:
