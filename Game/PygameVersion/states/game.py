@@ -65,7 +65,6 @@ def waitFish():
 
     print("")
     catchRNG()
-    time.sleep(3)
 
     return 
     
