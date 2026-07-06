@@ -63,6 +63,8 @@ def run_menu():
         # Position of texts
         screen.blit(titleText1, (titleX, titleY - 100)) # Getting the wanted height
         screen.blit(titleText2, (titleX + titleText1.get_width(), titleY - 100))
+
+        # Blinking
         if time.time() % 1 > 0.5:
             screen.blit(playText, (playX, playY + 250))
         screen.blit(fishText, (fishX, fishY - 100))
