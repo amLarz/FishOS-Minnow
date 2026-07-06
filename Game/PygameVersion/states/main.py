@@ -9,10 +9,10 @@ while True:
     if currentState == "menu":
         currentState = run_menu()
     
-    if currentState == "game":
+    elif currentState == "game":
         currentState = run_game()
     
-    if currentState == "quit":
+    elif currentState == "quit":
         break
 
-    
+
