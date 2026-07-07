@@ -40,7 +40,6 @@ def stateMachine():
     else:
         pass
 
-# TODO: sprite integration
 def waitFish():
 
     # Set up for time 
@@ -52,7 +51,7 @@ def waitFish():
     last_tick = time_start # every second start
     current_time = time_start # ever milisecond start
 
-    # Keeps fishing not be the add (have the chance to add dots)
+    # Keeps space for adding dots
     print("fishing", end="")
 
     while current_time <= time_end:
@@ -68,7 +67,6 @@ def waitFish():
     return 
     
 
-# TODO: work on sprites here
 # running and rendering the game 
 def run_game():
     # setup and render
