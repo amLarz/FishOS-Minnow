@@ -1,8 +1,19 @@
 import random
+import csv 
 
+# Depth switcher
+def permitted_depth():
+    if 
 
+# fish csv file
+def read_fishes():
+    with open ('fish.csv', newline='') as csvfile:
+        fishreader = csv.reader(csvfile)
+        for row in fishreader:
+            if 
 
-# Fishes Available:
+# SHALLOW LEVEL FISH 
+shallow_fish = ['Clown']
 
 def catchRNG():
     shallowFish = ["Minnow", "Shark", "><))*>"]
