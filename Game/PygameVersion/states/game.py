@@ -1,8 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-import random
-import time
-
+from fishingState import read_fishes
 
 
 # pygame setup
@@ -12,7 +10,8 @@ clock = pygame.time.Clock()
 player_state = False # made to be global
 
 # depth
-depth = ['shallow-water', 'mid-water', 'deepwater']
+depth_selected = 0
+depth = ['shallow', 'mid', 'deep']
 
 
 def switchState():
@@ -29,13 +28,14 @@ def switchState():
     
     if player_state == True:
         # move to fishingState.py
+        read_fishes(depth_selected)
         return
 
 # running and rendering the game 
 def run_game():
     # setup and render
+    global depth_selected
     running = True
-    selection = 0
     
 
     while running:
@@ -51,14 +51,16 @@ def run_game():
                 if event.key == pygame.K_x:
                     switchState()
 
-                if event.key == pygame.K_DOWN and selection != 2:
-                    selection += 1
+                if event.key == pygame.K_DOWN and depth_selected != 2:
+                    depth_selected += 1
+                    print(depth[depth_selected])
                 
-                if event.key == pygame.K_UP and selection != 0:
-                    selection -= 1
+                if event.key == pygame.K_UP and depth_selected != 0:
+                    depth_selected -= 1
+                    print(depth[depth_selected])
 
         # selection
-        print(depth[selection])
+        
             
 
         # fill the screen with a color to wipe away anything from last frame

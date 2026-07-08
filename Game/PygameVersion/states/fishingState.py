@@ -1,17 +1,23 @@
 import random
 import csv 
 import pygame
+import os
 
-# Depth switcher
-def permitted_depth():
-    if 
+# Setup
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "..", "Game Assets", "Fish Data", "fish.csv")
 
 # fish csv file
-def read_fishes():
-    with open ('fish.csv', newline='') as csvfile:
-        fishreader = csv.reader(csvfile)
-        for row in fishreader:
-            if 
+def read_fishes(depth_selection):
+
+    possible_fishes = []
+
+    with open(FISH_CSV_PATH, newline='') as csvfile:
+        fishreader = csv.DictReader(csvfile)
+        for row in zip(fishreader, range(0, depth_selection)):
+            possible_fishes.append(row)
+    
+    print(possible_fishes)
 
 
 def waitFish():
