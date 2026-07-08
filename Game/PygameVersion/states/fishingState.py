@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "..", "Game Assets", "Fish Data", "fish.csv")
 
 # fish csv file
-def load_fishes(DEPTH_LIST, depth_selected, depth_scope):
+def load_fishes(depth_scope):
 
     possible_fishes = []
 
@@ -44,11 +44,11 @@ def waitFish():
     print("")
 
 #TODO: FINISH CATCHING RNG SYSTEM
-def catchRNG(possible_fishes, depth_scope):
+def catchRNG(fishes, depth_scope):
     pass
 
 def catch_fish(DEPTH_LIST, depth_selected):
     depth_scope = DEPTH_LIST[:depth_selected + 1]
-    possible_fishes = load_fishes(DEPTH_LIST, depth_selected, depth_scope)
+    fishes = load_fishes(depth_scope)
     waitFish()
-    catchRNG(possible_fishes, depth_scope)
+    catchRNG(fishes, depth_scope)

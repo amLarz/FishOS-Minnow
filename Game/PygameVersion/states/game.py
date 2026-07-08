@@ -1,6 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-from fishingState import load_fishes, waitFish, catchRNG
+from fishingState import catch_fish
 
 
 # pygame setup
@@ -28,9 +28,7 @@ def switchState():
     
     if player_state == True:
         # move to fishingState.py
-        waitFish()
-        load_fishes(DEPTH_LIST, depth_selected)
-        catchRNG()
+        catch_fish(DEPTH_LIST, depth_selected)
 
     return
 
