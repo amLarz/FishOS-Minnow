@@ -1,6 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-from fishingState import read_fishes
+from fishingState import load_fishes, waitFish, catchRNG
 
 
 # pygame setup
@@ -11,7 +11,7 @@ player_state = False # made to be global
 
 # depth
 depth_selected = 0
-depth = ['shallow', 'mid', 'deep']
+DEPTH_LIST = ['shallow', 'mid', 'deep']
 
 
 def switchState():
@@ -28,8 +28,11 @@ def switchState():
     
     if player_state == True:
         # move to fishingState.py
-        read_fishes(depth_selected)
-        return
+        waitFish()
+        load_fishes(DEPTH_LIST, depth_selected)
+        catchRNG()
+
+    return
 
 # running and rendering the game 
 def run_game():
@@ -53,11 +56,11 @@ def run_game():
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
                     depth_selected += 1
-                    print(depth[depth_selected])
+                    print(DEPTH_LIST[depth_selected])
                 
                 if event.key == pygame.K_UP and depth_selected != 0:
                     depth_selected -= 1
-                    print(depth[depth_selected])
+                    print(DEPTH_LIST[depth_selected])
 
         # selection
         

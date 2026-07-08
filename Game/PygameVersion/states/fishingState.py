@@ -8,17 +8,17 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "..", "Game Assets", "Fish Data", "fish.csv")
 
 # fish csv file
-def read_fishes(depth_selection):
+def load_fishes(DEPTH_LIST, depth_selected, depth_scope):
 
     possible_fishes = []
 
     with open(FISH_CSV_PATH, newline='') as csvfile:
         fishreader = csv.DictReader(csvfile)
-        for row in zip(fishreader, range(0, depth_selection)):
-            possible_fishes.append(row)
-    
-    print(possible_fishes)
+        for row in fishreader: # WORK ON THIS ITS ONLY PUTTING BASED ON THE LITERAL LOOP NOT THE DEPTH
+            if row['depth'] in depth_scope:
+                possible_fishes.append(row)
 
+    return possible_fishes
 
 def waitFish():
 
@@ -42,22 +42,13 @@ def waitFish():
             print(".", end="")
 
     print("")
-    catchRNG()
-    return 
 
-def catchRNG():
-    shallowFish = ["Minnow", "Shark", "><))*>"]
-    fishRarity = random.randint(1, 100)
+#TODO: FINISH CATCHING RNG SYSTEM
+def catchRNG(possible_fishes, depth_scope):
+    pass
 
-    if fishRarity <= 50:
-        fish = shallowFish[0]
-
-    elif fishRarity > 50 and fishRarity <= 80:
-        fish = shallowFish[1]
-        
-    elif fishRarity > 80:
-        fish = shallowFish[2]
-    
-    print(f"caught a {fish}!")
-    
-    return fish
+def catch_fish(DEPTH_LIST, depth_selected):
+    depth_scope = DEPTH_LIST[:depth_selected + 1]
+    possible_fishes = load_fishes(DEPTH_LIST, depth_selected, depth_scope)
+    waitFish()
+    catchRNG(possible_fishes, depth_scope)
