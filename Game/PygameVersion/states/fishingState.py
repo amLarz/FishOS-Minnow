@@ -68,7 +68,7 @@ def catchRNG(fishes, depth_scope):
         if low <= rng <= high:
             selected_rarity = rarity
 
-    possible_rarity_fishes = [matching_fishes for matching_fishes in fishes if matching_fishes == selected_rarity]
+    possible_rarity_fishes = [matching_fishes for matching_fishes in fishes if matching_fishes['rarity'] == selected_rarity]
 
     selected_fish = random.choice(possible_rarity_fishes)
 
