@@ -1,6 +1,7 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 from fishingState import catch_fish
+from main import screen, clock
 
 player_state = False # made to be global
 

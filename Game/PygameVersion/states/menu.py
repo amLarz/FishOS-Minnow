@@ -1,6 +1,7 @@
 import pygame
 import time
 import os
+from main import screen, clock
 
 selection = 0
 screenWidth = 1280
