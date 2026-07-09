@@ -66,13 +66,9 @@ def catchRNG(fishes):
     selected_fish = random.choice(fishes)
     return print(f"caught a {selected_rarity} {selected_fish['fish_name']}!")
 
-    
-        
-
-
-
 def catch_fish(DEPTH_LIST, depth_selected):
     depth_scope = DEPTH_LIST[:depth_selected + 1]
+    print(depth_scope)
     fishes = load_fishes(depth_scope)
     waitFish()
     catchRNG(fishes)
