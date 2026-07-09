@@ -7,18 +7,18 @@ pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 selection = 0
-# Spec Variables
 screenWidth = 1280
 screenHeight = 720
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# font setup
+fontPath = os.path.join(BASE_DIR, "..", "..", "Game Assets", "determination.ttf")
+font = pygame.font.Font(fontPath, size=100)
+subfont = pygame.font.Font(fontPath, size=50)
+
+
 def run_menu():
     global selection
-
-    # Rendering the font
-    fontPath = os.path.join(BASE_DIR, "..", "..", "Game Assets", "determination.ttf")
-    font = pygame.font.Font(fontPath, size=100)
-    subfont = pygame.font.Font(fontPath, size=50)
 
     # Main menu texts
     titleText1 = font.render("FishOS: ", True, (0, 107, 166))
