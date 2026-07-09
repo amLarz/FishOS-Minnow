@@ -68,11 +68,10 @@ def catchRNG(fishes, depth_scope):
         if low <= rng <= high:
             selected_rarity = rarity
 
-    for fish in fishes:
-        if fish['rarity'] != selected_rarity:
-            fishes.remove(fish)
-    
-    selected_fish = random.choice(fishes)
+    possible_rarity_fishes = [matching_fishes for matching_fishes in fishes if matching_fishes == selected_rarity]
+
+    selected_fish = random.choice(possible_rarity_fishes)
+
     return print(f"caught a {selected_rarity} {selected_fish['fish_name']}!")
 
 def catch_fish(DEPTH_LIST, depth_selected):
@@ -81,3 +80,5 @@ def catch_fish(DEPTH_LIST, depth_selected):
     fishes = load_fishes(depth_scope)
     waitFish()
     catchRNG(fishes, depth_scope)
+
+    return
