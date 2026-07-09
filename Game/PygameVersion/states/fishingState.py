@@ -45,7 +45,22 @@ def waitFish():
 
 #TODO: FINISH CATCHING RNG SYSTEM
 def catchRNG(fishes, depth_scope):
-    pass
+
+    RARITY_LIST = {
+            'common': (1, 40), 
+            'uncommon': (41, 70),
+            'rare': (71, 85), 
+            'legendary': (86, 95),
+            'exotic': (96, 100),
+       }
+    rng = random.randint(1, 100)
+
+    for rarity, (low, high) in RARITY_LIST.items():
+        if low <= rng <= high:
+            print(rarity)
+        
+
+
 
 def catch_fish(DEPTH_LIST, depth_selected):
     depth_scope = DEPTH_LIST[:depth_selected + 1]
