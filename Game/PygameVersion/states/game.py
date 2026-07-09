@@ -2,11 +2,6 @@
 import pygame
 from fishingState import catch_fish
 
-
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
 player_state = False # made to be global
 
 # depth

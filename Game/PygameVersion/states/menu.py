@@ -2,10 +2,6 @@ import pygame
 import time
 import os
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
 selection = 0
 screenWidth = 1280
 screenHeight = 720
