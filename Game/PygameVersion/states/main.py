@@ -1,6 +1,7 @@
 from display import screen, clock
 from menu import run_menu
 from game import run_game
+import pygame
 
 currentState = run_menu()
 
@@ -14,5 +15,7 @@ while True:
     
     elif currentState == "quit":
         break
+
+pygame.quit()
 
 
