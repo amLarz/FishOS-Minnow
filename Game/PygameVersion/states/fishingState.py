@@ -1,7 +1,7 @@
 import random
 import csv 
-import pygame
 import os
+import time
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -23,8 +23,8 @@ def load_fishes(depth_scope):
 def waitFish():
 
     # Set up for time 
-    catch_time = random.randint(3000, 10000)
-    time_start = pygame.time.get_ticks() 
+    catch_time = random.randint(3, 10)
+    time_start = time.monotonic()
     time_end = time_start + catch_time
 
     last_tick = time_start # every second start 
@@ -34,11 +34,12 @@ def waitFish():
     print("fishing", end="")
 
     while current_time <= time_end:
-        
-        current_time = pygame.time.get_ticks()
 
-        if last_tick <= current_time - 1000:
-            last_tick += 1000
+        current_time = time.monotonic()
+
+        if last_tick <= current_time - 1:
+
+            last_tick += 1
             print(".", end="")
 
     print("")
@@ -78,7 +79,6 @@ def catchRNG(fishes, depth_scope):
 
 def catch_fish(DEPTH_LIST, depth_selected):
     depth_scope = DEPTH_LIST[:depth_selected + 1]
-    print(depth_scope)
     fishes = load_fishes(depth_scope)
     waitFish()
     catchRNG(fishes, depth_scope)
