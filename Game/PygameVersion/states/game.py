@@ -61,7 +61,7 @@ def run_game():
             
 
         # fill the screen with a color to wipe away anything from last frame
-        screen.fill("purple")
+        screen.fill("black")
 
         # RENDER YOUR GAME HERE
         # TODO: Display, for the main game.
