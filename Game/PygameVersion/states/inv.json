@@ -8,20 +8,5 @@
     "type": "fish",
     "count": 1,
     "rarity": "common"
-  },
-  "Mummichog": {
-    "type": "fish",
-    "count": 1,
-    "rarity": "common"
-  },
-  "Lanternfish": {
-    "type": "fish",
-    "count": 1,
-    "rarity": "uncommon"
-  },
-  "Squirrelfish": {
-    "type": "fish",
-    "count": 1,
-    "rarity": "uncommon"
   }
 }
