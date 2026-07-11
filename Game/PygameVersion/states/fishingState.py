@@ -2,6 +2,7 @@ import random
 import csv 
 import os
 import time
+from inv import add_inv
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -75,12 +76,12 @@ def catchRNG(fishes, depth_scope):
 
     selected_fish = random.choice(possible_rarity_fishes)
 
-    return print(f"caught a {selected_rarity} {selected_fish['fish_name']}!")
+    return selected_fish, print(f"caught a {selected_rarity} {selected_fish['fish_name']}!")
 
 def catch_fish(DEPTH_LIST, depth_selected):
     depth_scope = DEPTH_LIST[:depth_selected + 1]
     fishes = load_fishes(depth_scope)
     waitFish()
-    catchRNG(fishes, depth_scope)
-
-    return
+    selected_fish = catchRNG(fishes, depth_scope)
+    add_inv(selected_fish)
+    

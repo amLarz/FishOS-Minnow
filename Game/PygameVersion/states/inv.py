@@ -7,12 +7,21 @@ INV_JSON_PATH = os.path.join(BASE_DIR, "..", "..", "PygameVersion", "states", "i
 
 
 def load_inv():
-    inv = []
+    inv = {}
 
     with open(INV_JSON_PATH, "r") as file:
         inv = json.load(file)
         print(inv)
 
-def add_inv()
+    return inv
+
+
+def add_inv(inv, item, item_type):
+    if item in inv:   
+       inv[item]["count"] += 1 
+    else:       
+        if item_type == "fish":
+            
+
 
 
