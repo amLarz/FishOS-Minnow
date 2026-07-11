@@ -2,11 +2,13 @@
   "Fishing Rod": {
     "type": "item",
     "count": 1,
-    "tier": 1
+    "tier": 1,
+    "value": 1
   },
   "Test Fish": {
     "type": "fish",
     "count": 1,
-    "rarity": "common"
+    "rarity": "common",
+    "value": 9999
   }
 }

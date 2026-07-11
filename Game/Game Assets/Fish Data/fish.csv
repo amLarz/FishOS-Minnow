@@ -1,26 +1,26 @@
-fish_name,depth,rarity
-Bay Anchovy,shallow,common
-Atlantic Croaker,shallow,common
-Mummichog,shallow,common
-Pinfish,shallow,common
-Sergeant Major,shallow,common
-Sand Perch,shallow,common
-Striped Mullet,shallow,common
-Wrasse,shallow,uncommon
-Squirrelfish,shallow,uncommon
-Red Lionfish,shallow,rare
-Lanternfish,mid,uncommon
-Bristlemouth,mid,uncommon
-Hatchetfish,mid,uncommon
-Sawtooth Eel,mid,uncommon
-Barreleye,mid,rare
-Cookiecutter Shark,mid,rare
-Deep Sea Smelt,mid,rare
-Longnose Lancetfish,mid,rare
-Opah,mid,legendary
-Oarfish,mid,legendary
-Viperfish,deep,uncommon
-Gulper Eel,deep,rare
-Anglerfish,deep,rare
-Giant Squid,deep,legendary
-Dumbo Octopus,deep,exotic
+fish_name,depth,rarity,value
+Bay Anchovy,shallow,common,6
+Atlantic Croaker,shallow,common,8
+Mummichog,shallow,common,5
+Pinfish,shallow,common,9
+Sergeant Major,shallow,common,11
+Sand Perch,shallow,common,10
+Striped Mullet,shallow,common,14
+Wrasse,shallow,uncommon,24
+Squirrelfish,shallow,uncommon,28
+Red Lionfish,shallow,rare,75
+Lanternfish,mid,uncommon,35
+Bristlemouth,mid,uncommon,38
+Hatchetfish,mid,uncommon,40 
+Sawtooth Eel,mid,uncommon,50
+Barreleye,mid,rare,120
+Cookiecutter Shark,mid,rare,135
+Deep Sea Smelt,mid,rare,140
+Longnose Lancetfish,mid,rare,175
+Opah,mid,legendary,420
+Oarfish,mid,legendary,650
+Viperfish,deep,uncommon,60
+Gulper Eel,deep,rare,210
+Anglerfish,deep,rare,260
+Giant Squid,deep,legendary,900
+Dumbo Octopus,deep,exotic,1800

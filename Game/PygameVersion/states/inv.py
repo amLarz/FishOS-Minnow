@@ -24,9 +24,9 @@ def add_inv(inv, item, item_type):
         inv[item_name]["count"] += 1
     else:
         if item_type == "fish":
-            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["rarity"]}
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["rarity"], "value": item["value"]}
         elif item_type == "item":
-            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["tier"]}
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["tier"], "value": item["value"]} # not real variabls
 
     return inv
 
