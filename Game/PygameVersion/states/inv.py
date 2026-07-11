@@ -14,7 +14,6 @@ def load_inv():
 
     return inv
 
-
 def add_inv(inv, item, item_type):
     if item_type == "fish":
         item_name = item["fish_name"]
@@ -46,5 +45,5 @@ def store_catch(item, item_type):
     # Saving the item to the JSON file, saving the item. 
     save_inv(inv)
 
-    return print(inv)
+    return
 

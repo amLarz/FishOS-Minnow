@@ -88,7 +88,7 @@ def catch_fish(DEPTH_LIST, depth_selected):
     # Getting the fish caught with the RNG
     selected_fish = catchRNG(fishes, depth_scope)
     # Printing results
-    print(f"caught a {selected_fish['rarity']} {selected_fish['fish_name']}!")
+    print(f"caught a {selected_fish['rarity']} {selected_fish['fish_name']} in {selected_fish['depth']} depths!")
     # Starting storing to inventory algorithm
     store_catch(selected_fish, "fish")
     
