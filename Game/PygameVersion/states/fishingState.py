@@ -83,5 +83,5 @@ def catch_fish(DEPTH_LIST, depth_selected):
     fishes = load_fishes(depth_scope)
     waitFish()
     selected_fish = catchRNG(fishes, depth_scope)
-    add_inv(selected_fish)
+    add_inv(selected_fish, "fish")
     

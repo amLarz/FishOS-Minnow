@@ -17,11 +17,20 @@ def load_inv():
 
 
 def add_inv(inv, item, item_type):
-    if item in inv:   
-       inv[item]["count"] += 1 
-    else:       
+    if item_type == "fish":
+        item_name = item["fish_name"]
+    elif item_type == "item":
+        item_name = item["item_name"] # unmade csv file for items
+
+    if item in inv:
+        inv[item_name]["count"] += 1
+    else:
         if item_type == "fish":
-            
+            inv[item_name] = {item_name: {"type": "fish", "count": 1, "rarity": item["rarity"]}}
+        elif item_type == item:
+            inv[item_name] = {item_name: {"type": "fish", "count": 1, "rarity": item["tier"]}}
 
+    return inv[item_name]
 
+def save_inv()
 
