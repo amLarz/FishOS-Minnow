@@ -35,13 +35,17 @@ def add_inv(inv, item, item_type):
 def save_inv(inv):
 
     with open(INV_JSON_PATH, "w") as file:
-        json.dump(inv, file)
+        json.dump(inv, file, indent=2)
 
     return 
 
 def store_catch(item, item_type):
+    # Loading the current inventory
     inv = load_inv()
-    add_inv(inv, item, item, item_type)
+    # Adding item to inventory
+    add_inv(inv, item, item_type)
+    # Saving the item to the JSON file, saving the item. 
     save_inv(inv)
-    print(inv)
+
+    return print(inv)
 

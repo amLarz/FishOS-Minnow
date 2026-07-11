@@ -76,12 +76,19 @@ def catchRNG(fishes, depth_scope):
 
     selected_fish = random.choice(possible_rarity_fishes)
 
-    return selected_fish, print(f"caught a {selected_rarity} {selected_fish['fish_name']}!")
+    return selected_fish
 
 def catch_fish(DEPTH_LIST, depth_selected):
+    # Takes a list of the depth scope
     depth_scope = DEPTH_LIST[:depth_selected + 1]
+    # Loads all the fishes 
     fishes = load_fishes(depth_scope)
+    # Time/waiting for reel algorithm
     waitFish()
+    # Getting the fish caught with the RNG
     selected_fish = catchRNG(fishes, depth_scope)
+    # Printing results
+    print(f"caught a {selected_fish['rarity']} {selected_fish['fish_name']}!")
+    # Starting storing to inventory algorithm
     store_catch(selected_fish, "fish")
     
