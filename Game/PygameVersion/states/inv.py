@@ -11,7 +11,6 @@ def load_inv():
 
     with open(INV_JSON_PATH, "r") as file:
         inv = json.load(file)
-        print(inv)
 
     return inv
 
