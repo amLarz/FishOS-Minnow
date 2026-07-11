@@ -6,10 +6,10 @@ from display import screen, clock
 selection = 0
 screenWidth = 1280
 screenHeight = 720
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # font setup
-fontPath = os.path.join(BASE_DIR, "..", "..", "Game Assets", "determination.ttf")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
 font = pygame.font.Font(fontPath, size=100)
 subfont = pygame.font.Font(fontPath, size=50)
 

@@ -3,7 +3,7 @@ import os
 
 # Setup inventory file path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INV_JSON_PATH = os.path.join(BASE_DIR, "..", "..", "PygameVersion", "states", "inv.json")
+INV_JSON_PATH = os.path.join(BASE_DIR, "..", "PygameVersion", "inv.json")
 
 
 def load_inv():
