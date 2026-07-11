@@ -22,15 +22,26 @@ def add_inv(inv, item, item_type):
     elif item_type == "item":
         item_name = item["item_name"] # unmade csv file for items
 
-    if item in inv:
+    if item_name in inv:
         inv[item_name]["count"] += 1
     else:
         if item_type == "fish":
-            inv[item_name] = {item_name: {"type": "fish", "count": 1, "rarity": item["rarity"]}}
-        elif item_type == item:
-            inv[item_name] = {item_name: {"type": "fish", "count": 1, "rarity": item["tier"]}}
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["rarity"]}
+        elif item_type == "item":
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["tier"]}
 
-    return inv[item_name]
+    return inv
 
-def save_inv()
+def save_inv(inv):
+
+    with open(INV_JSON_PATH, "w") as file:
+        json.dump(inv, file)
+
+    return 
+
+def store_catch(item, item_type):
+    inv = load_inv()
+    add_inv(inv, item, item, item_type)
+    save_inv(inv)
+    print(inv)
 

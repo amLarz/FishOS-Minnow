@@ -2,7 +2,7 @@ import random
 import csv 
 import os
 import time
-from inv import add_inv
+from inv import store_catch
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -83,5 +83,5 @@ def catch_fish(DEPTH_LIST, depth_selected):
     fishes = load_fishes(depth_scope)
     waitFish()
     selected_fish = catchRNG(fishes, depth_scope)
-    add_inv(selected_fish, "fish")
+    store_catch(selected_fish, "fish")
     
