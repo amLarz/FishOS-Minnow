@@ -47,7 +47,7 @@ def waitFish():
 
     return 
 
-def catchRNG(fishes, depth_scope):
+def catchRNG(fishes, depth_selected): #depth_scope):
 
     RARITY_LIST = fish_rarity({
             'common': (1, 40), 
@@ -57,29 +57,34 @@ def catchRNG(fishes, depth_scope):
             'exotic': (96, 100),
        })
     
-    class fish_rarity: 
+    class fish_rarity:
+    
+        class rarity_cap:
+
+            def __init__(rcap, depth, cap):
+                rcap.depth = depth
+                rcap.cap = cap
+            
+            def get_cap(rcap):
+                for depth in rcap.depth:    
+                    if depth_selected == rcap.depth[depth]:
+                        rarity_cap = rcap.cap[depth]
+            
+                return rarity_cap
+
         def __init__(self, rarity, r_range):
             self.rarity = rarity
-            self.r_range= r_range
-        
-        class rarity_cap:
-            def __init__(self, depth, cap):
-                self.depth = depth
-                self.cap = cap
+            self.r_range = r_range
 
         RARITY_CAP = rarity_cap({
             'shallow': 85,
             'mid': 95,
             'deep': 100,
         })
+        
+        cap = RARITY_CAP.get_cap()
 
-    
-        if ndepth_scope == 1:
-            rarity_cap = 85
-        elif ndepth_scope == 2:
-            rarity_cap = 95
-
-        rng = random.randint(1, rarity_cap)
+        rng = random.randint(1, cap)
 
         for rarity, (low, high) in RARITY_LIST.items():
             if low <= rng <= high:
@@ -92,13 +97,13 @@ def catchRNG(fishes, depth_scope):
 
 def catch_fish(DEPTH_LIST, depth_selected):
     # Takes a list of the depth scope
-    depth_scope = DEPTH_LIST[:depth_selected + 1]
+    #depth_scope = DEPTH_LIST[:depth_selected + 1]
     # Loads all the fishes 
     fishes = load_fishes(depth_scope)
     # Time/waiting for reel algorithm
     waitFish()
     # Getting the fish caught with the RNG
-    selected_fish = catchRNG(fishes, depth_scope)
+    selected_fish = catchRNG(fishes, depth_selected)#depth_scope)
     # Printing results
     print(f"caught a {selected_fish['rarity']} {selected_fish['fish_name']} in {selected_fish['depth']} depths!")
     # Starting storing to inventory algorithm
