@@ -47,36 +47,48 @@ def waitFish():
 
     return 
 
-#TODO: FINISH CATCHING RNG SYSTEM
 def catchRNG(fishes, depth_scope):
 
-    RARITY_LIST = {
+    RARITY_LIST = fish_rarity({
             'common': (1, 40), 
             'uncommon': (41, 70),
             'rare': (71, 85), 
             'legendary': (86, 95),
             'exotic': (96, 100),
-       }
+       })
     
-    ndepth_scope = len(depth_scope)
-    rarity_cap = 100
+    class fish_rarity: 
+        def __init__(self, rarity, r_range):
+            self.rarity = rarity
+            self.r_range= r_range
+        
+        class rarity_cap:
+            def __init__(self, depth, cap):
+                self.depth = depth
+                self.cap = cap
+
+        RARITY_CAP = rarity_cap({
+            'shallow': 85,
+            'mid': 95,
+            'deep': 100,
+        })
+
     
-    if ndepth_scope == 1:
-        rarity_cap = 85
-    elif ndepth_scope == 2:
-        rarity_cap = 95
+        if ndepth_scope == 1:
+            rarity_cap = 85
+        elif ndepth_scope == 2:
+            rarity_cap = 95
 
-    rng = random.randint(1, rarity_cap)
+        rng = random.randint(1, rarity_cap)
 
-    for rarity, (low, high) in RARITY_LIST.items():
-        if low <= rng <= high:
-            selected_rarity = rarity
+        for rarity, (low, high) in RARITY_LIST.items():
+            if low <= rng <= high:
+                selected_rarity = rarity
 
-    possible_rarity_fishes = [matching_fishes for matching_fishes in fishes if matching_fishes['rarity'] == selected_rarity]
+        possible_rarity_fishes = [matching_fishes for matching_fishes in fishes if matching_fishes['rarity'] == selected_rarity]
 
-    selected_fish = random.choice(possible_rarity_fishes)
+        selected_fish = random.choice(possible_rarity_fishes)
 
-    return selected_fish
 
 def catch_fish(DEPTH_LIST, depth_selected):
     # Takes a list of the depth scope
