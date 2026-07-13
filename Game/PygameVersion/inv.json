@@ -1,4 +1,10 @@
 {
+  "Coin Bag": {
+    "type": "item",
+    "count": 1,
+    "tier": 1,
+    "value": 0
+  },
   "Fishing Rod": {
     "type": "item",
     "count": 1,
