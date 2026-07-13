@@ -5,6 +5,7 @@ import os
 # in-game-file imports
 from fishingState import catch_fish
 from display import screen, clock
+from inv import load_inv
 
 fishing_state = False
 
@@ -12,11 +13,12 @@ fishing_state = False
 depth_selected = 0
 DEPTH_LIST = ['shallow', 'mid', 'deep']
 
-# font setup
+# font setup and screen size
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
-font = pygame.font.Font(fontPath, size=100)
-subfont = pygame.font.Font(fontPath, size=50)
+font = pygame.font.Font(fontPath, size=50)
+screen_width = 1280
+screen_height = 720
 
 
 def switchState():
@@ -38,8 +40,6 @@ def switchState():
     return 0
 
 def get_coins():
-    from inv import load_inv
-
     inv = load_inv()
 
     return inv["Coin Bag"]["value"]
@@ -54,6 +54,10 @@ def run_game():
 
     # render coins
     coins_text = font.render(str(coins), True, (135, 206, 250))
+    ctext_width = coins_text.get_width()
+    ctext_height = coins_text.get_height()
+    coin_textX = (screen_width - ctext_width)
+    coins_textY = (screen_height - ctext_height)
 
     while running:
         # poll for events
@@ -80,7 +84,7 @@ def run_game():
         screen.fill("black")
 
         # show coin text
-        screen.blit(coins_text, (1200, 5))
+        screen.blit(coins_text, (coin_textX, coins_textY))
 
         # flip() the display to put your work on screen
         pygame.display.flip()
