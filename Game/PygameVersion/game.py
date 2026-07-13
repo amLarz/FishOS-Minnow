@@ -50,12 +50,15 @@ def run_game():
     # setup and render
     global depth_selected
     running = True
+    # getting coins
     coins = get_coins()
 
-    # render coins
+    # rendering coins and it's position
     coins_text = font.render(str(coins), True, (135, 206, 250))
+    # getting measurements of the value
     ctext_width = coins_text.get_width()
     ctext_height = coins_text.get_height()
+    # getting the desired position
     coin_textX = (screen_width - ctext_width)
     coins_textY = (screen_height - ctext_height)
 
