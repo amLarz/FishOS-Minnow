@@ -10,5 +10,11 @@
     "count": 1,
     "tier": 1,
     "value": 1
+  },
+  "Wrasse": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "uncommon",
+    "value": "24"
   }
 }

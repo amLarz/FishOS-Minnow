@@ -5,7 +5,6 @@ import os
 # in-game-file imports
 from fishingState import catch_fish
 from display import screen, clock
-from inv import load_inv
 
 fishing_state = False
 
@@ -38,25 +37,12 @@ def switchState():
 
     return 0
 
-# Gets value of coins from json file 
 def get_coins():
+    from inv import load_inv
+
     inv = load_inv()
 
     return inv["Coin Bag"]["value"]
-
-# font render and setup
-def font_render():
-
-    def coins_render():
-        coins = get_coins()
-        coins_text = font.render(coins, True, (255, 255, 255))
-    
-        return coins_text
-
-    # blit screen
-    screen.blit(coins_render(), (100, -100))
-
-    return 0
 
 
 # running and rendering the game 
@@ -64,8 +50,10 @@ def run_game():
     # setup and render
     global depth_selected
     running = True
+    coins = get_coins()
 
-
+    # render coins
+    coins_text = font.render(str(coins), True, (135, 206, 250))
 
     while running:
         # poll for events
@@ -91,9 +79,8 @@ def run_game():
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
 
-        # show text
-        font_render()
-
+        # show coin text
+        screen.blit(coins_text, (1200, 5))
 
         # flip() the display to put your work on screen
         pygame.display.flip()
