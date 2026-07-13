@@ -1,18 +1,28 @@
-# Example file showing a basic pygame "game loop"
+# library imports
 import pygame
+import os
+import json
+
+# in-game-file imports
 from fishingState import catch_fish
 from display import screen, clock
 
-player_state = False # made to be global
+fishing_state = False
 
 # depth
 depth_selected = 0
 DEPTH_LIST = ['shallow', 'mid', 'deep']
 
+# font setup
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+font = pygame.font.Font(fontPath, size=100)
+subfont = pygame.font.Font(fontPath, size=50)
+
 
 def switchState():
-    global player_state
-    current_state = player_state
+    global fishing_state
+    current_state = fishing_state
 
     if current_state == True:
         current_state = False
@@ -20,13 +30,19 @@ def switchState():
     elif current_state == False:
         current_state = True
 
-    player_state = current_state
+    fishing_state = current_state
     
-    if player_state == True:
+    if fishing_state == True:
         # move to fishingState.py
         catch_fish(DEPTH_LIST, depth_selected)
 
     return
+
+# TODO: Find a way to create a variable that changes based on the value of inv json's coin bag 'value'
+
+# Rendering the font 
+def font_render():
+    coins_text = font.render()
 
 # running and rendering the game 
 def run_game():
@@ -65,6 +81,7 @@ def run_game():
 
         # RENDER YOUR GAME HERE
         # TODO: Display, for the main game.
+
 
         # flip() the display to put your work on screen
         pygame.display.flip()
