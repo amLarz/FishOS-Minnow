@@ -36,27 +36,36 @@ def switchState():
         # move to fishingState.py
         catch_fish(DEPTH_LIST, depth_selected)
 
-    return
+    return 0
 
-# Gets value from json file
-def coin_view():
+# Gets value of coins from json file 
+def get_coins():
     inv = load_inv()
-    coins = inv["Coin Bag"]["value"]
 
-    return coins
+    return inv["Coin Bag"]["value"]
 
-# Rendering the font 
+# font render and setup
 def font_render():
-    coins = coin_view()
 
-    coins_text = font.render(coins, True, (255, 255, 255))
+    def coins_render():
+        coins = get_coins()
+        coins_text = font.render(coins, True, (255, 255, 255))
+    
+        return coins_text
+
+    # blit screen
+    screen.blit(coins_render(), (100, -100))
+
+    return 0
+
 
 # running and rendering the game 
 def run_game():
     # setup and render
     global depth_selected
     running = True
-    
+
+
 
     while running:
         # poll for events
@@ -79,16 +88,11 @@ def run_game():
                     depth_selected -= 1
                     print(DEPTH_LIST[depth_selected])
 
-        # selection
-        
-            
-
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
 
-        # RENDER YOUR GAME HERE
-        # TODO: Display, for the main game.
-        
+        # show text
+        font_render()
 
 
         # flip() the display to put your work on screen
