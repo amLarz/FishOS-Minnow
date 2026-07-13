@@ -1,11 +1,11 @@
 # library imports
 import pygame
 import os
-import json
 
 # in-game-file imports
 from fishingState import catch_fish
 from display import screen, clock
+from inv import load_inv
 
 fishing_state = False
 
@@ -38,11 +38,18 @@ def switchState():
 
     return
 
-# TODO: Find a way to create a variable that changes based on the value of inv json's coin bag 'value'
+# Gets value from json file
+def coin_view():
+    inv = load_inv()
+    coins = inv["Coin Bag"]["value"]
+
+    return coins
 
 # Rendering the font 
 def font_render():
-    coins_text = font.render()
+    coins = coin_view()
+
+    coins_text = font.render(coins, True, (255, 255, 255))
 
 # running and rendering the game 
 def run_game():
@@ -81,6 +88,7 @@ def run_game():
 
         # RENDER YOUR GAME HERE
         # TODO: Display, for the main game.
+        
 
 
         # flip() the display to put your work on screen
