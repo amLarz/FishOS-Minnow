@@ -11,35 +11,28 @@ from inv import load_inv
 BASE_DIR =  os.path.dirname(os.path.abspath(__file__))
 fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
 font = pygame.font.Font(fontPath, size=50)
+inv_font = pygame.font.Font(fontPath, size=25)
 
 def on_inv():
     inv = load_inv()
 
-    item_text_array = []
-    detail_text_array = []
-
-    for item in inv:
-        item_text_array.append(item)
-
-        if item["type"] == "item":
-            detail_text_array.append(f"type: item, tier: {item["tier"]}, value: {item["value"]}, {item["count"]}x")
-        elif item["type"] == "fish":
-            detail_text_array.append(f"type: fish, rarity: {item["rarity"]}, value: {item["value"]}, {item["count"]}x")
-
-    # render text
-    for item in item_text_array:
-        item_name_text = font.render(item, True, "white")
-        nitem_x = screenWidth - item.get_width() - 600
-        nitem_y = screenHeight - item.get_height() - 100
-
-        screen.blit(item_name_text, (nitem_x, nitem_y))
-
+    for i, (name, item_details) in enumerate(inv.items()):
+        if item_details["type"] == "item":
+            row_text = f"{name} | type: {item_details["type"]} | tier: {item_details["tier"]} | value: {item_details["value"]} | {item_details["count"]}x"
+        elif item_details["type"] == "fish":
+            row_text = f"{name} | type: {item_details["type"]} | rarity: {item_details["rarity"]} | value: {item_details["value"]} | {item_details["count"]}x"
+        
+        row_text_render = inv_font.render(row_text, True, "black") # change color to black later
+        separation = inv_font.render("__________________________________________________", True, "black")
+        y_pos = 80 + (i * 40)
+        screen.blit(row_text_render, (320, y_pos))
+        screen.blit(separation, (320, y_pos + 10))
 
 def run_gameMenu(): 
 
     # rect config
     pause_rect = pygame.Rect(50, 50, 220, 400)
-    inventory_rect = pygame.Rect(300, 50, 600, 400)
+    inventory_rect = pygame.Rect(300, 50, 800, 400)
 
     # FONT CONFIGS AND RENDER
     # FISH OS TEXT config
@@ -80,7 +73,7 @@ def run_gameMenu():
         screen.blit(fishOS_text, (fbutton_x, fbutton_y))
         screen.blit(resume_button, (rbutton_x, rbutton_y))
 
-
+        on_inv()
 
         pygame.display.flip()
 

@@ -10,5 +10,41 @@
     "count": 1,
     "tier": 1,
     "value": 1
+  },
+  "Squirrelfish": {
+    "type": "fish",
+    "count": 2,
+    "rarity": "uncommon",
+    "value": "28"
+  },
+  "Pinfish": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "common",
+    "value": "9"
+  },
+  "Wrasse": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "uncommon",
+    "value": "24"
+  },
+  "Red Lionfish": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "rare",
+    "value": "75"
+  },
+  "Sergeant Major": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "common",
+    "value": "11"
+  },
+  "Sawtooth Eel": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "uncommon",
+    "value": "50"
   }
 }
