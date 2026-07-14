@@ -14,10 +14,11 @@ def run_gameMenu():
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.KEYDOWN:
-                pass
+                if event.key == pygame.K_ESCAPE:
+                    return "game"
 
         # fill screen with color
-        screen.fill("beige")
+        pygame.draw.rect(screen, "white", (50, 50, 200, 100))
         
         pygame.display.flip()
 

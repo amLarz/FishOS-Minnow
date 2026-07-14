@@ -1,6 +1,7 @@
-from display import screen, clock
+from display import *
 from menu import run_menu
 from game import run_game
+from gameMenu import run_gameMenu
 import pygame
 
 currentState = run_menu()
@@ -12,6 +13,9 @@ while True:
     
     elif currentState == "game":
         currentState = run_game()
+
+    elif currentState == "pause":
+        currentState = run_gameMenu()
     
     elif currentState == "quit":
         break

@@ -43,6 +43,7 @@ def get_coins():
     return inv["Coin Bag"]["value"]
 
 
+
 # running and rendering the game 
 def run_game():
     # setup and render
@@ -70,6 +71,9 @@ def run_game():
 
             if event.type == pygame.KEYDOWN:
 
+                if event.key == pygame.K_ESCAPE:
+                    return "pause"
+
                 if event.key == pygame.K_x:
                     switchState()
 
@@ -86,7 +90,6 @@ def run_game():
 
         # show coin text
         screen.blit(coins_text, (coin_textX, coins_textY))
-
         # flip() the display to put your work on screen
         pygame.display.flip()
 
