@@ -10,11 +10,5 @@
     "count": 1,
     "tier": 1,
     "value": 1
-  },
-  "Striped Mullet": {
-    "type": "fish",
-    "count": 1,
-    "rarity": "common",
-    "value": "14"
   }
 }
