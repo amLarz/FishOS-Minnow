@@ -80,12 +80,13 @@ def run_gameMenu():
                         inv_selection += 1
                         sy_pos += 40
 
-                if event.key == pygame.K_s:
+                if event.key == pygame.K_x:
                     if is_inv == True:
-                        sell_fish(pause_selection)
+                        sell_fish(inv_selection)
 
                 if event.key == pygame.K_RIGHT and is_inv != True:
                     is_inv = True
+                    
                 if event.key == pygame.K_LEFT and is_inv != False:
                     is_inv = False
 

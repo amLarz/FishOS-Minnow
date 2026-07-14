@@ -42,24 +42,11 @@ def get_coins():
 
     return inv["Coin Bag"]["value"]
 
-
-
 # running and rendering the game 
 def run_game():
     # setup and render
     global depth_selected
     running = True
-    # getting coins
-    coins = get_coins()
-
-    # rendering coins and it's position
-    coins_text = font.render(str(coins), True, (135, 206, 250))
-    # getting measurements of the value
-    ctext_width = coins_text.get_width()
-    ctext_height = coins_text.get_height()
-    # getting the desired position
-    coin_textX = (screenWidth - ctext_width)
-    coins_textY = (screenHeight - ctext_height)
 
     while running:
         # poll for events
@@ -74,7 +61,7 @@ def run_game():
                 if event.key == pygame.K_ESCAPE:
                     return "pause"
 
-                if event.key == pygame.K_s:
+                if event.key == pygame.K_f:
                     switchState()
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
@@ -87,6 +74,18 @@ def run_game():
 
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
+
+        # getting coins
+        coins = get_coins()
+
+        # rendering coins and it's position
+        coins_text = font.render(str(coins), True, (135, 206, 250))
+        # getting measurements of the value
+        ctext_width = coins_text.get_width()
+        ctext_height = coins_text.get_height()
+        # getting the desired position
+        coin_textX = (screenWidth - ctext_width)
+        coins_textY = (screenHeight - ctext_height)
 
         # show coin text
         screen.blit(coins_text, (coin_textX, coins_textY))

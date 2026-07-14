@@ -35,9 +35,9 @@ def add_inv(inv, item, item_type):
         inv[item_name]["count"] += 1
     else:
         if item_type == "fish":
-            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["rarity"], "value": item["value"]}
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["rarity"], "value": int(item["value"])}
         elif item_type == "item":
-            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["tier"], "value": item["value"]} # not real variabls
+            inv[item_name] = {"type": "fish", "count": 1, "rarity": item["tier"], "value": int(item["value"])} # not real variabls
 
     return inv
 
@@ -61,12 +61,25 @@ def store_catch(item, item_type):
 
 def sell_fish(selected_item):
     inv = load_inv()
-    item = inv[selected_item]
+    item = list(inv.keys())[selected_item]
 
-    fish_value = item["value"]
-    del item
+    if inv[item]["type"] == "item":
+        return
+    
+    fish = inv[item]
+    fish_value = fish["value"]
 
-    item["value"] += fish_value
+    inv["Coin Bag"]["value"] += fish_value
+
+
+    if inv[item]["count"] > 1:
+        inv[item]["count"] -= 1
+    else:
+        del inv[item]
+        
+    save_inv(inv)
+
+    return
 
 
 
