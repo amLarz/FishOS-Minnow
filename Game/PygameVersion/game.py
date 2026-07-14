@@ -79,7 +79,7 @@ def run_game():
         coins = get_coins()
 
         # rendering coins and it's position
-        coins_text = font.render(str(coins), True, (135, 206, 250))
+        coins_text = font.render(f"coins: {str(coins)}", True, (135, 206, 250))
         # getting measurements of the value
         ctext_width = coins_text.get_width()
         ctext_height = coins_text.get_height()
