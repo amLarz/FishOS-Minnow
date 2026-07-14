@@ -1,11 +1,9 @@
 import pygame
 import time
 import os
-from display import screen, clock
+from display import *
 
 selection = 0
-screenWidth = 1280
-screenHeight = 720
 
 # font setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

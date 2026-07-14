@@ -4,7 +4,7 @@ import os
 
 # in-game-file imports
 from fishingState import catch_fish
-from display import screen, clock
+from display import *
 from inv import load_inv
 
 fishing_state = False
@@ -17,8 +17,6 @@ DEPTH_LIST = ['shallow', 'mid', 'deep']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
 font = pygame.font.Font(fontPath, size=50)
-screen_width = 1280
-screen_height = 720
 
 
 def switchState():
@@ -59,8 +57,8 @@ def run_game():
     ctext_width = coins_text.get_width()
     ctext_height = coins_text.get_height()
     # getting the desired position
-    coin_textX = (screen_width - ctext_width)
-    coins_textY = (screen_height - ctext_height)
+    coin_textX = (screenWidth - ctext_width)
+    coins_textY = (screenHeight - ctext_height)
 
     while running:
         # poll for events
