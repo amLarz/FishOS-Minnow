@@ -1,5 +1,7 @@
 import json
 import os
+import pygame
+from display import *
 
 # Setup inventory file path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -12,7 +14,9 @@ def load_inv():
 
     if not os.path.exists(INV_JSON_PATH):
         # Fishing rod is always going to be in your inventory.
-        inv = {"Fishing Rod": {"type": "item", "count": 1, "tier": 1, "value": 1}}
+        inv = {"Fishing Rod": {"type": "item", "count": 1, "tier": 1, "value": 1}, 
+               "Coin Bag": {"type": "item", "count": 1, "tier": 1, "value": 1}}
+        
         with open(INV_JSON_PATH, "w") as file:
             json.dump(inv, file, indent=2)
     else:
@@ -37,6 +41,7 @@ def add_inv(inv, item, item_type):
 
     return inv
 
+
 def save_inv(inv):
 
     with open(INV_JSON_PATH, "w") as file:
@@ -53,4 +58,17 @@ def store_catch(item, item_type):
     save_inv(inv)
 
     return
+
+def sell_fish(selected_item):
+    inv = load_inv()
+    item = inv[selected_item]
+
+    fish_value = item["value"]
+    del item
+
+    item["value"] += fish_value
+
+
+
+    
 

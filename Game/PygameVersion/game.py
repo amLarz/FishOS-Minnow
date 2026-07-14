@@ -74,7 +74,7 @@ def run_game():
                 if event.key == pygame.K_ESCAPE:
                     return "pause"
 
-                if event.key == pygame.K_x:
+                if event.key == pygame.K_s:
                     switchState()
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
