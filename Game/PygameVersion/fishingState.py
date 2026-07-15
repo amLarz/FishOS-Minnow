@@ -2,6 +2,7 @@ import random
 import csv 
 import os
 import time
+import pygame
 from inv import store_catch
 
 # Setup

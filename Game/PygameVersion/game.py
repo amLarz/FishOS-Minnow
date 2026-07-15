@@ -1,6 +1,8 @@
 # library imports
 import pygame
 import os
+from tilemap import *
+import time
 
 # in-game-file imports
 from fishingState import catch_fish
@@ -50,10 +52,15 @@ def run_game():
     running = True
 
     # render depth meter
-    depth_text = d_font.render("depth: ", True, (255, 255, 255))
-    dshallow_text = d_font.render("shallow", True, (135, 206, 250))
-    dmid_text = d_font.render("mid", True, (0, 107, 166))
-    ddeep_text = d_font.render("deep", True, (0, 60, 95))
+    depth_text = d_font.render("depth: ", True, (0, 0, 0))
+    dshallow_text = d_font.render("shallow", True, (0, 60, 95))
+    dmid_text = d_font.render("mid", True, (25, 25, 112))
+    ddeep_text = d_font.render("deep", True, (0, 0, 0))
+
+    # render full inventory text 
+    full_inv_text = d_font.render("Inventory is full.", True, (70, 0, 0))
+    full_invX = (screenWidth - full_inv_text.get_width()) // 2
+    full_invY = (screenHeight - full_inv_text.get_height()) // 2
 
     while running:
         # poll for events
@@ -69,7 +76,20 @@ def run_game():
                     return "pause"
 
                 if event.key == pygame.K_f:
-                    switchState()
+                    inv = load_inv()
+                    if len(inv) == 9:
+                        time_start = time.monotonic()
+                        time_end = time_start + 0.4
+                        current_time = time_start
+
+                        while current_time <= time_end:
+
+                            current_time = time.monotonic()
+                            screen.blit(full_inv_text, (full_invX, full_invY - 100))
+                            pygame.display.flip()
+
+                    else:
+                        switchState()
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
                     depth_selected += 1
@@ -90,7 +110,9 @@ def run_game():
         # getting the desired position
         coin_textX = (screenWidth - ctext_width)
         coins_textY = (screenHeight - ctext_height)
-
+        
+        # draw tiles
+        draw_tile()
 
         # depth texts
         # change the depth text according to depth
