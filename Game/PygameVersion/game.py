@@ -17,6 +17,7 @@ DEPTH_LIST = ['shallow', 'mid', 'deep']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
 font = pygame.font.Font(fontPath, size=50)
+d_font = pygame.font.Font(fontPath, size = 40)
 
 
 def switchState():
@@ -49,10 +50,10 @@ def run_game():
     running = True
 
     # render depth meter
-    depth_text = font.render("depth: ", True, (255, 255, 255))
-    dshallow_text = font.render("shallow", True, (135, 206, 250))
-    dmid_text = font.render("mid", True, (0, 107, 166))
-    ddeep_text = font.render("deep", True, (0, 60, 95))
+    depth_text = d_font.render("depth: ", True, (255, 255, 255))
+    dshallow_text = d_font.render("shallow", True, (135, 206, 250))
+    dmid_text = d_font.render("mid", True, (0, 107, 166))
+    ddeep_text = d_font.render("deep", True, (0, 60, 95))
 
     while running:
         # poll for events
@@ -72,11 +73,9 @@ def run_game():
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
                     depth_selected += 1
-                    print(DEPTH_LIST[depth_selected])
                 
                 if event.key == pygame.K_UP and depth_selected != 0:
                     depth_selected -= 1
-                    print(DEPTH_LIST[depth_selected])
 
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
@@ -104,13 +103,13 @@ def run_game():
             screen.blit(dshallow_text, (depth_textX + dshallow_s, depth_textY))
 
         elif DEPTH_LIST[depth_selected] == "mid":
-            dmid_s = (ddeep_text.get_width() + depth_text.get_width()) - 110
+            dmid_s = (ddeep_text.get_width() + depth_text.get_width()) - 90
 
             screen.blit(depth_text, (depth_textX, depth_textY))
             screen.blit(dmid_text, (depth_textX + dmid_s, depth_textY))
 
         elif DEPTH_LIST[depth_selected] == "deep":
-            ddeep_s = (ddeep_text.get_width() + depth_text.get_width()) - 110
+            ddeep_s = (ddeep_text.get_width() + depth_text.get_width()) - 90
 
             screen.blit(depth_text, (depth_textX, depth_textY))
             screen.blit(ddeep_text, (depth_textX + ddeep_s, depth_textY))
