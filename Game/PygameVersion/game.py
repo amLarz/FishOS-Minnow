@@ -114,8 +114,6 @@ def run_game():
                             pygame.display.flip()
 
                     else:
-                        fish_sprite.draw(screen)
-                        time.sleep(0.5)
                         switchState()
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
