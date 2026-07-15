@@ -48,6 +48,12 @@ def run_game():
     global depth_selected
     running = True
 
+    # render depth meter
+    depth_text = font.render("depth: ", True, (255, 255, 255))
+    dshallow_text = font.render("shallow", True, (135, 206, 250))
+    dmid_text = font.render("mid", True, (0, 107, 166))
+    ddeep_text = font.render("deep", True, (0, 60, 95))
+
     while running:
         # poll for events
         # pygame.QUIT event means the user clicked X to close your window
@@ -77,15 +83,38 @@ def run_game():
 
         # getting coins
         coins = get_coins()
-
         # rendering coins and it's position
-        coins_text = font.render(f"coins: {str(coins)}", True, (135, 206, 250))
+        coins_text = font.render(f"coins: {str(coins)}", True, (255, 215, 0))
         # getting measurements of the value
         ctext_width = coins_text.get_width()
         ctext_height = coins_text.get_height()
         # getting the desired position
         coin_textX = (screenWidth - ctext_width)
         coins_textY = (screenHeight - ctext_height)
+
+
+        # depth texts
+        # change the depth text according to depth
+        depth_textX = 0
+        depth_textY = 0
+        if DEPTH_LIST[depth_selected] == "shallow":
+            dshallow_s = dshallow_text.get_width() - 30
+
+            screen.blit(depth_text, (depth_textX, depth_textY))
+            screen.blit(dshallow_text, (depth_textX + dshallow_s, depth_textY))
+
+        elif DEPTH_LIST[depth_selected] == "mid":
+            dmid_s = (ddeep_text.get_width() + depth_text.get_width()) - 110
+
+            screen.blit(depth_text, (depth_textX, depth_textY))
+            screen.blit(dmid_text, (depth_textX + dmid_s, depth_textY))
+
+        elif DEPTH_LIST[depth_selected] == "deep":
+            ddeep_s = (ddeep_text.get_width() + depth_text.get_width()) - 110
+
+            screen.blit(depth_text, (depth_textX, depth_textY))
+            screen.blit(ddeep_text, (depth_textX + ddeep_s, depth_textY))
+        
 
         # show coin text
         screen.blit(coins_text, (coin_textX, coins_textY))
