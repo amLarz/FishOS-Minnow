@@ -20,8 +20,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
 font = pygame.font.Font(fontPath, size=50)
 d_font = pygame.font.Font(fontPath, size = 40)
-
-
+    
 def switchState():
     global fishing_state
     current_state = fishing_state
@@ -45,11 +44,36 @@ def get_coins():
 
     return inv["Coin Bag"]["value"]
 
+
+# sprite paths
+idle_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_Idle.png")
+fish_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_fish.png")
+catch_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_catch.png")
+
+
+
 # running and rendering the game 
 def run_game():
     # setup and render
     global depth_selected
     running = True
+
+    class Character:
+        def __init__(self, sprite, x, y):
+            # get the image from the path
+            original = pygame.image.load(sprite).convert_alpha()
+            w, h = original.get_size()
+            self.sprite = pygame.transform.scale(original, (w * 10, h * 10))
+            self.x = x
+            self.y = y
+        
+        def draw(self, screen):
+            screen.blit(self.sprite, (self.x, self.y))
+
+    # sprites config
+    idle_sprite = Character(idle_path, 480, 220)
+    fish_sprite = Character(fish_path, 480, 220)
+    catch_sprite = Character(catch_path, 480, 220)
 
     # render depth meter
     depth_text = d_font.render("depth: ", True, (0, 0, 0))
@@ -61,6 +85,7 @@ def run_game():
     full_inv_text = d_font.render("Inventory is full.", True, (70, 0, 0))
     full_invX = (screenWidth - full_inv_text.get_width()) // 2
     full_invY = (screenHeight - full_inv_text.get_height()) // 2
+
 
     while running:
         # poll for events
@@ -89,6 +114,8 @@ def run_game():
                             pygame.display.flip()
 
                     else:
+                        fish_sprite.draw(screen)
+                        time.sleep(0.5)
                         switchState()
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
@@ -113,6 +140,10 @@ def run_game():
         
         # draw tiles
         draw_tile()
+        
+        # draw sprites
+        if fishing_state == False:
+            idle_sprite.draw(screen)
 
         # depth texts
         # change the depth text according to depth

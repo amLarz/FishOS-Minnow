@@ -2,12 +2,13 @@ import random
 import csv 
 import os
 import time
-import pygame
+
 from inv import store_catch
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "Game Assets", "Fish Data", "fish.csv")
+
 
 # fish csv file
 def load_fishes(depth_scope):

@@ -40,15 +40,36 @@ def run_gameMenu():
     fishOS_text = font.render("FISH OS", True, "black")
     fbutton_x = screenWidth - fishOS_text.get_width() - 1025
     fbutton_y = screenHeight - fishOS_text.get_height() - 590
-    # resume button config
-    resume_button = font.render("Resume", True, "black")
-    rbutton_x = screenWidth - resume_button.get_width() - 1030
-    rbutton_y = screenHeight - resume_button.get_height() - 520
+    # menu button config
+    menu_buttonA = font.render("Menu", True, "black")
+    menu_buttonB = font.render("Menu", True, "brown")
+    mbutton_x = screenWidth - menu_buttonA.get_width() - 1055
+    mbutton_y = screenHeight - menu_buttonA.get_height() - 460
+
+    # Quit button config
+    quit_buttonA = font.render("Quit", True, "black")
+    quit_buttonB = font.render("Quit", True, "brown")
+    qbutton_x = screenWidth - quit_buttonA.get_width() - 1058
+    qbutton_y = screenHeight - quit_buttonA.get_height() - 400
+
+    # Inv button config
+    inv_buttonA = font.render("Inv", True, "black")
+    inv_buttonB = font.render("Inv", True, "brown")
+    ibutton_x = screenWidth - inv_buttonA.get_width() - 1070
+    ibutton_y = screenHeight - inv_buttonA.get_height() - 520 
+
+    # selling font
+    x_2sell = inv_font.render("'X' to sell", True, "black")
+    x_textX = ((screenWidth - x_2sell.get_width()) // 2) + 390
+    x_textY = ((screenHeight - x_2sell.get_height()) // 2) + 60
 
     # selection
     pause_selection = 0
     inv_selection = 0
     is_inv = False
+    PAUSE_CAP = 2
+    INV_CAP = 8
+    MIN_CAP = 0
     
     # position for inv_selection rectangle:
     sy_pos = 50
@@ -66,19 +87,28 @@ def run_gameMenu():
                 
                 if event.key == pygame.K_UP:
 
-                    if is_inv == False and pause_selection != 0:
+                    if is_inv == False and pause_selection != MIN_CAP:
                         pause_selection -= 1
-                    elif is_inv == True and inv_selection != 0:
+                    elif is_inv == True and inv_selection != MIN_CAP:
                         inv_selection -= 1
                         sy_pos -= 40
 
                 if event.key == pygame.K_DOWN:
 
-                    if is_inv == False and pause_selection != 3:
+                    if is_inv == False and pause_selection != PAUSE_CAP:
                         pause_selection += 1
-                    elif is_inv == True and inv_selection != 8:
+                    elif is_inv == True and inv_selection != INV_CAP:
                         inv_selection += 1
                         sy_pos += 40
+
+                if event.key == pygame.K_f:
+                    if is_inv == False:
+                        if pause_selection == 0:
+                            is_inv = True
+                        if pause_selection == 1:
+                            return "menu"
+                        if pause_selection == 2:
+                            return "quit"
 
                 if event.key == pygame.K_x:
                     if is_inv == True:
@@ -100,6 +130,8 @@ def run_gameMenu():
         pygame.draw.rect(screen, "beige", inventory_rect)
         pygame.draw.rect(screen, "brown", inventory_rect, 5)
 
+        # draw small font x to sell
+        screen.blit(x_2sell, (x_textX, x_textY))
 
         if is_inv == True:
             selection_rect = pygame.Rect(300, sy_pos, 800, 50)           
@@ -107,7 +139,24 @@ def run_gameMenu():
 
         # blit fonts
         screen.blit(fishOS_text, (fbutton_x, fbutton_y))
-        screen.blit(resume_button, (rbutton_x, rbutton_y))
+
+        # selected flashing effect
+        if pause_selection == 0 and is_inv == False:
+                screen.blit(inv_buttonB, (ibutton_x, ibutton_y))
+        else: 
+            screen.blit(inv_buttonA, (ibutton_x, ibutton_y))
+
+        if pause_selection == 1 and is_inv == False:
+                screen.blit(menu_buttonB, (mbutton_x, mbutton_y))
+        else: 
+            screen.blit(menu_buttonA, (mbutton_x, mbutton_y))
+        
+        if pause_selection == 2 and is_inv == False:
+                screen.blit(quit_buttonB, (qbutton_x, qbutton_y))
+        else: 
+            screen.blit(quit_buttonA, (qbutton_x, qbutton_y))
+
+
 
         show_inv()
 
