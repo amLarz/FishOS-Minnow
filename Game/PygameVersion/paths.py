@@ -7,7 +7,7 @@ def resource_path(relative_path):
     else:
         base_path = os.path.dirname(os.path.abspath(__file__))
     
-    return os.path.join(base_path)
+    return os.path.join(base_path, relative_path)
 
 def save_path(filename):
     if hasattr(sys, "_MEIPASS"):

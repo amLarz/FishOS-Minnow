@@ -7,7 +7,7 @@ from inv import store_catch
 from sprite import fish_sprite, catch_sprite
 from display import *
 from tilemap import draw_tile
-from paths import resource_path
+from paths import resource_path, save_path
 
 # Setup
 FISH_CSV_PATH = resource_path(os.path.join("Game Assets", "Fish Data", "fish.csv"))
