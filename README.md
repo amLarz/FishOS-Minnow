@@ -49,7 +49,7 @@ Binaries:
 - FishOS.exe - Windows 10/11, 64-bit
 
 ## Credits
-Art - my good friend Nyuuji
+Art - good friend Nyuuji
 
 ## AI DISCLOSURE
 I used AI to sanity check (mainly for portability for the ESP32), catching bugs I took hours to find and learning concepts that would be used for my project.
