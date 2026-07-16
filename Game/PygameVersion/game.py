@@ -9,6 +9,7 @@ from fishingState import catch_fish
 from display import *
 from inv import load_inv
 from sprite import idle_sprite
+from paths import resource_path
 
 fishing_state = False
 
@@ -17,8 +18,7 @@ depth_selected = 0
 DEPTH_LIST = ['shallow', 'mid', 'deep']
 
 # font setup and screen size
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=50)
 d_font = pygame.font.Font(fontPath, size = 40)
     

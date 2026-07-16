@@ -1,12 +1,11 @@
 import pygame
 import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+from paths import resource_path
 
 # sprite paths
-idle_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_Idle.png")
-fish_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_fish.png")
-catch_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_catch.png")
+idle_path = resource_path(os.path.join("..", "Game Assets", "Art", "Right_Idle.png"))
+fish_path = resource_path(os.path.join("..", "Game Assets", "Art", "Right_fish.png"))
+catch_path = resource_path(os.path.join("..", "Game Assets", "Art", "Right_catch.png"))
 
 # sprite characters
 class Character:

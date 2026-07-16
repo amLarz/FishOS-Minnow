@@ -7,13 +7,13 @@ from inv import store_catch
 from sprite import fish_sprite, catch_sprite
 from display import *
 from tilemap import draw_tile
+from paths import resource_path
 
 # Setup
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "Game Assets", "Fish Data", "fish.csv")
+FISH_CSV_PATH = resource_path(os.path.join("..", "Game Assets", "Fish Data", "fish.csv"))
 
 # font setup
-fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
 f_font = pygame.font.Font(fontPath, size = 40)
 
 

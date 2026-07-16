@@ -2,12 +2,11 @@ import os
 import pygame
 
 from display import *
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+from paths import resource_path
 
 #Tile setup:
 tile_size = 32
-tile_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Water_Tile.png")
+tile_path = resource_path(os.path.join("..", "Game Assets", "Art", "Water_Tile.png"))
 tile_map = [
     ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],
     ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],

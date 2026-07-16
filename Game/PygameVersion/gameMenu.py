@@ -5,11 +5,11 @@ import os
 # import other game files
 from display import *
 from inv import load_inv, sell_fish
+from paths import resource_path
     
 
 # font config 
-BASE_DIR =  os.path.dirname(os.path.abspath(__file__))
-fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=50)
 inv_font = pygame.font.Font(fontPath, size=25)
 

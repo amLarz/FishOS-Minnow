@@ -1,11 +1,10 @@
 import json
 import os
-import pygame
 from display import *
+from paths import resource_path
 
 # Setup inventory file path
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INV_JSON_PATH = os.path.join(BASE_DIR, "..", "PygameVersion", "inv.json")
+INV_JSON_PATH = resource_path(os.path.join("..", "PygameVersion", "inv.json"))
 
 
 def load_inv():

@@ -2,12 +2,12 @@ import pygame
 import time
 import os
 from display import *
+from paths import resource_path
 
 selection = 0
 
 # font setup
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=100)
 subfont = pygame.font.Font(fontPath, size=50)
 
