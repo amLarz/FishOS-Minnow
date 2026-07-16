@@ -9,8 +9,8 @@ heres a GIF of the menu
 
 ## Why was this made?
 I made this project because I felt like I was pushing myself too much in multiple tech fields. 
-I realized I wanted to make something I, myself wanted. 
-So I bring you my first ever python project: FishOS Minnow. It's ambitious and was suppose to bring hardware but I had to limit myself to software for now.
+I realized I wanted to make something I wanted. Even if it has no use.
+So I bring you my first ever python project: FishOS Minnow. It was supposed to have hardware but I had to limit myself to software for now.
 
 # How was this made?
 Due to originally being for the ESP32, I had to limit what I could use to make the game. So I started on python with the pygame framework.
