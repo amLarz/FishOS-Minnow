@@ -9,6 +9,12 @@
     "type": "item",
     "count": 1,
     "tier": 1,
-    "value": 0
+    "value": 2883
+  },
+  "Red Lionfish": {
+    "type": "fish",
+    "count": 1,
+    "rarity": "rare",
+    "value": 75
   }
 }

@@ -6,6 +6,7 @@ import time
 from inv import store_catch
 from sprite import fish_sprite, catch_sprite
 from display import *
+from tilemap import draw_tile
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -59,7 +60,7 @@ def waitFish():
 
             last_tick += 1
             print(".", end="")
-
+        
         pygame.display.flip()
 
     print("")
@@ -108,10 +109,11 @@ def catch_fish(DEPTH_LIST, depth_selected):
     selected_fish = catchRNG(fishes, depth_scope)
 
     start_time = time.monotonic()
-    end_time =start_time + 2.4
+    end_time =start_time + 1.4
     current_time = start_time
 
     while current_time <= end_time:
+        draw_tile()
         current_time = time.monotonic()
 
         fish_caught = f_font.render(f"caught an {selected_fish['rarity']} {selected_fish['fish_name']}!", True, (255, 255, 0))

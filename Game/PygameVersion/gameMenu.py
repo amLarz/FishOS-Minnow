@@ -31,6 +31,8 @@ def show_inv():
 
 def run_gameMenu(): 
 
+    inv = load_inv()
+
     # rect config
     pause_rect = pygame.Rect(50, 50, 220, 400)
     inventory_rect = pygame.Rect(300, 50, 800, 390)
@@ -68,7 +70,7 @@ def run_gameMenu():
     inv_selection = 0
     is_inv = False
     PAUSE_CAP = 2
-    INV_CAP = 8
+    inv_cap = len(inv) - 1
     MIN_CAP = 0
     
     # position for inv_selection rectangle:
@@ -97,7 +99,7 @@ def run_gameMenu():
 
                     if is_inv == False and pause_selection != PAUSE_CAP:
                         pause_selection += 1
-                    elif is_inv == True and inv_selection != INV_CAP:
+                    elif is_inv == True and inv_selection != inv_cap:
                         inv_selection += 1
                         sy_pos += 40
 
@@ -112,7 +114,11 @@ def run_gameMenu():
 
                 if event.key == pygame.K_x:
                     if is_inv == True:
+                        inv = load_inv()
+                        inv_cap = len(inv) - 1
                         sell_fish(inv_selection)
+                        if inv_selection == inv_cap:
+                            inv_cap = len(inv)
 
                 if event.key == pygame.K_RIGHT and is_inv != True:
                     is_inv = True
