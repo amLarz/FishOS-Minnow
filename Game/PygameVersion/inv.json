@@ -9,12 +9,6 @@
     "type": "item",
     "count": 1,
     "tier": 1,
-    "value": 2432
-  },
-  "Sergeant Major": {
-    "type": "fish",
-    "count": 2,
-    "rarity": "common",
-    "value": 11
+    "value": 0
   }
 }
