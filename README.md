@@ -12,14 +12,14 @@ I made this project because I felt like I was pushing myself too much in multipl
 I realized I wanted to make something I wanted. Even if it has no use.
 So I bring you my first ever python project: FishOS Minnow. It was supposed to have hardware but I had to limit myself to software for now.
 
-# How was this made?
+## How was this made?
 Due to originally being for the ESP32, I had to limit what I could use to make the game. So I started on python with the pygame framework.
 I had to learn both concepts of python such as classes and pygame functions on the way in order to produce this game. This is mainly the reason why it manage to take 40 hours to make.
 
 
 ## Try it here!
-
-just click the download link and it should be done!
+https://github.com/amLarz/FishOS-Minnow/releases/tag/first-playable-version
+just click this version download link, extract the zip, place all the contents inside a folder and open ``FishOS.exe``.
 
 ## controls:
 - ``F`` - fishing or interactions.
