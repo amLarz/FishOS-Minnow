@@ -3,9 +3,9 @@ import os
 from paths import resource_path
 
 # sprite paths
-idle_path = resource_path(os.path.join("Game", "Game Assets", "Art", "Right_Idle.png"))
-fish_path = resource_path(os.path.join("Game", "Game Assets", "Art", "Right_fish.png"))
-catch_path = resource_path(os.path.join("Game", "Game Assets", "Art", "Right_catch.png"))
+idle_path = resource_path(os.path.join("Game Assets", "Art", "Right_Idle.png"))
+fish_path = resource_path(os.path.join("Game Assets", "Art", "Right_fish.png"))
+catch_path = resource_path(os.path.join("Game Assets", "Art", "Right_catch.png"))
 
 # sprite characters
 class Character:

@@ -6,7 +6,7 @@ from paths import resource_path
 
 #Tile setup:
 tile_size = 32
-tile_path = resource_path(os.path.join("..", "Game Assets", "Art", "Water_Tile.png"))
+tile_path = resource_path(os.path.join("Game Assets", "Art", "Water_Tile.png"))
 tile_map = [
     ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],
     ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],
