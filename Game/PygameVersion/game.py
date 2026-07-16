@@ -18,7 +18,7 @@ depth_selected = 0
 DEPTH_LIST = ['shallow', 'mid', 'deep']
 
 # font setup and screen size
-fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
+fontPath = resource_path(os.path.join("Game", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=50)
 d_font = pygame.font.Font(fontPath, size = 40)
     

@@ -10,23 +10,5 @@
     "count": 1,
     "tier": 1,
     "value": 0
-  },
-  "Mummichog": {
-    "type": "fish",
-    "count": 2,
-    "rarity": "common",
-    "value": 5
-  },
-  "Bay Anchovy": {
-    "type": "fish",
-    "count": 1,
-    "rarity": "common",
-    "value": 6
-  },
-  "Red Lionfish": {
-    "type": "fish",
-    "count": 3,
-    "rarity": "rare",
-    "value": 75
   }
 }

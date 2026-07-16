@@ -9,7 +9,7 @@ from paths import resource_path
     
 
 # font config 
-fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
+fontPath = resource_path(os.path.join("Game", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=50)
 inv_font = pygame.font.Font(fontPath, size=25)
 

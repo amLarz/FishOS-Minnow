@@ -7,7 +7,7 @@ from paths import resource_path
 selection = 0
 
 # font setup
-fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
+fontPath = resource_path(os.path.join("Game", "Game Assets", "determination.ttf"))
 font = pygame.font.Font(fontPath, size=100)
 subfont = pygame.font.Font(fontPath, size=50)
 

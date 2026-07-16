@@ -10,10 +10,10 @@ from tilemap import draw_tile
 from paths import resource_path
 
 # Setup
-FISH_CSV_PATH = resource_path(os.path.join("..", "Game Assets", "Fish Data", "fish.csv"))
+FISH_CSV_PATH = resource_path(os.path.join("Game", "Game Assets", "Fish Data", "fish.csv"))
 
 # font setup
-fontPath = resource_path(os.path.join("..", "Game Assets", "determination.ttf"))
+fontPath = resource_path(os.path.join("Game", "Game Assets", "determination.ttf"))
 f_font = pygame.font.Font(fontPath, size = 40)
 
 
