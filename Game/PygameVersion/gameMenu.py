@@ -114,11 +114,13 @@ def run_gameMenu():
 
                 if event.key == pygame.K_x:
                     if is_inv == True:
-                        inv = load_inv()
-                        inv_cap = len(inv) - 1
                         sell_fish(inv_selection)
+                        inv = load_inv()
+                        inv_cap = len(inv)
                         if inv_selection == inv_cap:
-                            inv_cap = len(inv)
+                            inv_selection -= 1
+                            inv_cap -= 1
+                            sy_pos -= 40
 
                 if event.key == pygame.K_RIGHT and is_inv != True:
                     is_inv = True
