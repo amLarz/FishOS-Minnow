@@ -8,6 +8,7 @@ import time
 from fishingState import catch_fish
 from display import *
 from inv import load_inv
+from sprite import idle_sprite
 
 fishing_state = False
 
@@ -32,48 +33,20 @@ def switchState():
         current_state = True
 
     fishing_state = current_state
-    
-    if fishing_state == True:
-        # move to fishingState.py
-        catch_fish(DEPTH_LIST, depth_selected)
 
-    return 0
+    return fishing_state
 
 def get_coins():
     inv = load_inv()
 
     return inv["Coin Bag"]["value"]
 
-
-# sprite paths
-idle_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_Idle.png")
-fish_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_fish.png")
-catch_path = os.path.join(BASE_DIR, "..", "Game Assets", "Art", "Right_catch.png")
-
-
-
 # running and rendering the game 
 def run_game():
     # setup and render
     global depth_selected
+    global fishing_state
     running = True
-
-    class Character:
-        def __init__(self, sprite, x, y):
-            # get the image from the path
-            original = pygame.image.load(sprite).convert_alpha()
-            w, h = original.get_size()
-            self.sprite = pygame.transform.scale(original, (w * 10, h * 10))
-            self.x = x
-            self.y = y
-        
-        def draw(self, screen):
-            screen.blit(self.sprite, (self.x, self.y))
-
-    # sprites config
-    idle_sprite = Character(idle_path, 480, 220)
-    fish_sprite = Character(fish_path, 480, 220)
-    catch_sprite = Character(catch_path, 480, 220)
 
     # render depth meter
     depth_text = d_font.render("depth: ", True, (0, 0, 0))
@@ -114,7 +87,9 @@ def run_game():
                             pygame.display.flip()
 
                     else:
-                        switchState()
+                        fishing_state = switchState()
+                        if fishing_state == True:
+                            fishing_state = catch_fish(DEPTH_LIST, depth_selected)
 
                 if event.key == pygame.K_DOWN and depth_selected != 2:
                     depth_selected += 1
@@ -172,5 +147,5 @@ def run_game():
         pygame.display.flip()
 
         clock.tick(60)  # limits FPS to 60
-           
+
     return "quit"

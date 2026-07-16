@@ -120,8 +120,6 @@ def run_gameMenu():
                 if event.key == pygame.K_LEFT and is_inv != False:
                     is_inv = False
 
-        
-
         # draw rectangle of pause screen
         pygame.draw.rect(screen, "beige", pause_rect)
         pygame.draw.rect(screen, "brown", pause_rect, 5)

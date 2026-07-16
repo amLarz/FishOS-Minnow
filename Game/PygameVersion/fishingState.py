@@ -4,10 +4,16 @@ import os
 import time
 
 from inv import store_catch
+from sprite import fish_sprite, catch_sprite
+from display import *
 
 # Setup
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FISH_CSV_PATH = os.path.join(BASE_DIR, "..", "Game Assets", "Fish Data", "fish.csv")
+
+# font setup
+fontPath = os.path.join(BASE_DIR, "..", "Game Assets", "determination.ttf")
+f_font = pygame.font.Font(fontPath, size = 40)
 
 
 # fish csv file
@@ -36,17 +42,28 @@ def waitFish():
     # Keeps space for adding dots
     print("fishing", end="")
 
+    fishing_text = ["fishing"]
+
     while current_time <= time_end:
+
+        fish_sprite.draw(screen)
 
         current_time = time.monotonic()
 
         if last_tick <= current_time - 1:
+            fishing_text.append(".")
+            joined_list = "".join(fishing_text)
+            render_dots = f_font.render(joined_list, True, "black")
+
+            screen.blit(render_dots, (820, 250))
 
             last_tick += 1
             print(".", end="")
 
-    print("")
+        pygame.display.flip()
 
+    print("")
+    
     return 
 
 #TODO: FINISH CATCHING RNG SYSTEM
@@ -89,8 +106,22 @@ def catch_fish(DEPTH_LIST, depth_selected):
     waitFish()
     # Getting the fish caught with the RNG
     selected_fish = catchRNG(fishes, depth_scope)
-    # Printing results
-    print(f"caught a {selected_fish['rarity']} {selected_fish['fish_name']} in {selected_fish['depth']} depths!")
+
+    start_time = time.monotonic()
+    end_time =start_time + 2.4
+    current_time = start_time
+
+    while current_time <= end_time:
+        current_time = time.monotonic()
+
+        fish_caught = f_font.render(f"caught an {selected_fish['rarity']} {selected_fish['fish_name']}!", True, (255, 255, 0))
+        screen.blit(fish_caught, (250, 150))
+        catch_sprite.draw(screen)
+
+        pygame.display.flip()
     # Starting storing to inventory algorithm
     store_catch(selected_fish, "fish")
+    fishing_state = False
+
+    return fishing_state
     
