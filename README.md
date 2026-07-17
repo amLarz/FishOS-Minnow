@@ -37,15 +37,27 @@ just click this version download link, extract the zip, place all the contents i
 ## Tech Stack:
 Languages:
 - Python
-Frameworks/Libraries:
+
+
+Frameworks/Libraries: 
+
+
 - Pygame Framework
+
+
 Tools:
 - VSCode IDE
 - Git
+
+
 Data Formats:
 - CSV
 - JSON
+
+
 Binaries:
+
+
 - FishOS.exe - Windows 10/11, 64-bit
 
 ## Credits
